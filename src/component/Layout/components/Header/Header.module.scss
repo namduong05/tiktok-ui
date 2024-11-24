@@ -19,12 +19,19 @@
     align-items: center;
 }
 
-.logo {
+.search,
+.search-result {
+    width: 361px;
+}
+
+.search-title {
+    padding-left: 8px;
+    font-size: 1.4rem;
+    color: rgba(22, 24, 35, 0.5);
 }
 
 .search {
     position: relative;
-    width: 361px;
     height: var(--search-height);
     padding-left: 16px;
     display: flex;
