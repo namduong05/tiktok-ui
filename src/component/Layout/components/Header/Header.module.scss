@@ -19,6 +19,10 @@
     align-items: center;
 }
 
+.logo {
+    display: flex;
+}
+
 .search,
 .search-result {
     width: 361px;
@@ -99,10 +103,34 @@
     }
 }
 
-//More btn
+//Action
+.action {
+    display: flex;
+    align-items: center;
+}
+
+.action-btn {
+    position: relative;
+    top: 3px;
+    color: #161823;
+    padding: 4px 10px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 16px;
+    cursor: pointer;
+}
+
 .more-icon {
     font-size: 2rem;
     margin-left: 28px;
     padding: 4px 8px;
     background-color: transparent;
+    cursor: pointer;
 }
