@@ -19,10 +19,6 @@
     align-items: center;
 }
 
-.logo {
-    display: flex;
-}
-
 //Action
 .action {
     display: flex;
@@ -39,7 +35,7 @@
 
     &::after {
         content: '35';
-        font-family: TikTokFont;
+        font-family: var(--font-family);
         font-weight: 700;
         position: absolute;
         top: 0;

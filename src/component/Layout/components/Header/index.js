@@ -13,6 +13,7 @@ import {
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
+import routesConfig from '~/config/routes';
 import Button from '~/component/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -20,6 +21,7 @@ import Menu from '~/component/Popper/Menu';
 import { MessageIcon } from '~/component/Icons';
 import Image from './Image';
 import Search from '../Search';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -90,9 +92,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home}>
                     <img src={images.logo} alt="TikTok" />
-                </div>
+                </Link>
 
                 {/* {Seacrh ở đây nè!!!} */}
 
@@ -101,7 +103,9 @@ function Header() {
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
-                            <Button text>Upload</Button>
+                            <Link to={routesConfig.upload}>
+                                <Button text>Upload</Button>
+                            </Link>
 
                             <Tippy offset={[0, 0]} content="Message" placement="bottom">
                                 <button className={cx('action-btn')}>
