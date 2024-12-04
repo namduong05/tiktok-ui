@@ -13,7 +13,7 @@ import {
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
-import routesConfig from '~/config/routes';
+import config from '~/config';
 import Button from '~/component/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -92,7 +92,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home}>
+                <Link to={config.routes.home}>
                     <img src={images.logo} alt="TikTok" />
                 </Link>
 
@@ -103,7 +103,7 @@ function Header() {
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
-                            <Link to={routesConfig.upload}>
+                            <Link to={config.routes.upload}>
                                 <Button text>Upload</Button>
                             </Link>
 
