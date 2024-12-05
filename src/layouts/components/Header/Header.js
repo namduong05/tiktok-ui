@@ -9,7 +9,6 @@ import {
     faCoins,
     faGear,
     faSignOut,
-    faL,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
