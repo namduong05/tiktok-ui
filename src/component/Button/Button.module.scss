@@ -37,6 +37,7 @@
     border-radius: 50px;
     box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
     border-color: rgba(22, 24, 35, 0.12);
+    justify-content: center;
 
     &:hover {
         border-color: rgba(22, 24, 35, 0.2);
@@ -45,9 +46,10 @@
 }
 
 .primary {
-    color: #fff;
+    color: #fff !important;
     background-color: var(--primary);
     border-color: var(--primary);
+    justify-content: center;
 
     &:hover {
         border-color: var(--primary);
@@ -56,8 +58,9 @@
 }
 
 .outline {
-    color: var(--primary);
+    color: var(--primary) !important;
     border-color: currentColor;
+    justify-content: center;
 
     &:hover {
         border-color: currentColor;
