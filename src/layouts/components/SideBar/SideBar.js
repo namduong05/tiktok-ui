@@ -14,12 +14,13 @@ import {
 
 import { Menu, MenuItem } from './Menu';
 import SuggestedAccounts from '~/component/SuggestedAccounts';
+import { dataFollowing, dataSuggested } from '~/component/SuggestedAccounts/data';
 
 const cx = classNames.bind(styles);
 
 function SideBar() {
     return (
-        <aside className={cx('wrapper')}>
+        <div className={cx('wrapper')}>
             <Menu>
                 <MenuItem title="For You" to={config.routes.home} icon={<HomeIcon />} activeIcon={<HomeActiveIcon />} />
                 <MenuItem
@@ -37,9 +38,9 @@ function SideBar() {
                 <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
             </Menu>
 
-            <SuggestedAccounts label="Suggested accounts" />
-            <SuggestedAccounts label="Following accounts" />
-        </aside>
+            <SuggestedAccounts label="Suggested accounts" datas={dataSuggested} />
+            <SuggestedAccounts label="Following accounts" datas={dataFollowing} />
+        </div>
     );
 }
 
