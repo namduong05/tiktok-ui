@@ -5,13 +5,13 @@ import AccountItem from './AccountItem';
 
 const cx = classNames.bind(styles);
 
-function SuggestedAccounts({ label, datas }) {
+function SuggestedAccounts({ label, datas, isFollowing }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
 
             {datas.map((data, index) => (
-                <AccountItem key={index} data={data} />
+                <AccountItem key={index} data={data} isFollowing={isFollowing} />
             ))}
 
             <p className={cx('more-btn')}>See more</p>

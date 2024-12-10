@@ -6,12 +6,12 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
-function PreviewAcc({ data }) {
+function PreviewAcc({ data, isFollowing }) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
                 <img className={cx('avatar')} src={data.avatar} alt={data.nickname} />
-                <Button primary>Follow</Button>
+                {isFollowing ? <Button rounded>Following</Button> : <Button primary>Follow</Button>}
             </div>
 
             <div className={cx('info')}>

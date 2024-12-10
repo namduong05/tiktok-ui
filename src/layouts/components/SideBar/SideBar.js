@@ -39,8 +39,8 @@ function SideBar() {
                 <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
             </Menu>
 
-            <SuggestedAccounts label="Suggested accounts" datas={dataSuggested} />
-            <SuggestedAccounts label="Following accounts" datas={dataFollowing} />
+            <SuggestedAccounts label="Suggested accounts" datas={dataSuggested} isFollowing={false} />
+            <SuggestedAccounts label="Following accounts" datas={dataFollowing} isFollowing={true} />
 
             <Footer />
         </div>

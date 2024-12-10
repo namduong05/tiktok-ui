@@ -9,15 +9,15 @@ import PreviewAcc from './PreviewAcc';
 
 const cx = classNames.bind(styles);
 
-const renderPreview = (attrs, data) => (
+const renderPreview = (attrs, data, isFollowing) => (
     <div className={cx('preview')} tabIndex="-1" {...attrs}>
         <PopperWrapper>
-            <PreviewAcc data={data} />
+            <PreviewAcc data={data} isFollowing={isFollowing} />
         </PopperWrapper>
     </div>
 );
 
-function AccountItem({ data }) {
+function AccountItem({ data, isFollowing }) {
     return (
         <div>
             <Tippy
@@ -25,7 +25,7 @@ function AccountItem({ data }) {
                 delay={[800, 0]}
                 offset={[-10, 0]}
                 placement="bottom"
-                render={(attrs) => renderPreview(attrs, data)}
+                render={(attrs) => renderPreview(attrs, data, isFollowing)}
             >
                 <div className={cx('account-item')}>
                     <img className={cx('avatar')} src={data.avatar} alt={data.nickname} />
