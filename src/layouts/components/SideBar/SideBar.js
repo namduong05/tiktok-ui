@@ -15,6 +15,7 @@ import {
 import { Menu, MenuItem } from './Menu';
 import SuggestedAccounts from '~/component/SuggestedAccounts';
 import { dataFollowing, dataSuggested } from '~/component/SuggestedAccounts/data';
+import Footer from './Footer';
 
 const cx = classNames.bind(styles);
 
@@ -40,6 +41,8 @@ function SideBar() {
 
             <SuggestedAccounts label="Suggested accounts" datas={dataSuggested} />
             <SuggestedAccounts label="Following accounts" datas={dataFollowing} />
+
+            <Footer />
         </div>
     );
 }

@@ -1,0 +1,35 @@
+.footer {
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+}
+
+.event {
+    position: relative;
+}
+
+.img-event {
+    width: 100%;
+}
+
+.title-event {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    max-width: 150px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.title {
+    padding-top: 10px;
+    cursor: pointer;
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 1.5rem;
+}
+
+.copyright {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 4px;
+    color: rgba(22, 24, 35, 0.5);
+}
