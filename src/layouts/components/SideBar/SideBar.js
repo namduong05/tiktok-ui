@@ -13,8 +13,8 @@ import {
 } from '~/component/Icons';
 
 import { Menu, MenuItem } from './Menu';
-import SuggestedAccounts from '~/component/SuggestedAccounts';
-import { dataFollowing, dataSuggested } from '~/component/SuggestedAccounts/data';
+import Accounts from '~/component/Accounts';
+import { dataFollowing, dataSuggested } from '~/component/Accounts/data';
 import Footer from './Footer';
 
 const cx = classNames.bind(styles);
@@ -39,8 +39,8 @@ function SideBar() {
                 <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
             </Menu>
 
-            <SuggestedAccounts label="Suggested accounts" datas={dataSuggested} isFollowing={false} />
-            <SuggestedAccounts label="Following accounts" datas={dataFollowing} isFollowing={true} />
+            <Accounts label="Suggested accounts" datas={dataSuggested} isFollowing={false} />
+            <Accounts label="Following accounts" datas={dataFollowing} isFollowing={true} />
 
             <Footer />
         </div>

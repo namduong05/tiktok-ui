@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 function Footer() {
     return (
         <footer className={cx('footer')}>
-            <a href="#" className={cx('event')}>
+            <a href="/" className={cx('event')}>
                 <img
                     className={cx('img-event')}
                     src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok/webapp/main/webapp-desktop-islands/021d2ed936cbb9f7033f.png"

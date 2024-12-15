@@ -50,6 +50,8 @@ const ListLink = () => {
     ];
 
     const handleClick = (index) => {
+        document.getElementsByClassName(styles.title)[index].classList.add(styles.active);
+        if (activeTab === index) document.getElementsByClassName(styles.title)[index].classList.remove(styles.active);
         setActiveTab(activeTab === index ? null : index);
     };
 

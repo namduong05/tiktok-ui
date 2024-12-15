@@ -27,9 +27,7 @@
     color: rgba(22, 24, 35, 0.5);
     font-size: 1.5rem;
 
-    &.active1,
-    &.active2,
-    &.active3 {
+    &.active {
         color: #000;
     }
 }

@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind';
-import styles from './SuggestedAccounts.module.scss';
+import styles from './Accounts.module.scss';
 import PropTypes from 'prop-types';
 import AccountItem from './AccountItem';
 
 const cx = classNames.bind(styles);
 
-function SuggestedAccounts({ label, datas, isFollowing }) {
+function Accounts({ label, datas, isFollowing }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
@@ -19,8 +19,8 @@ function SuggestedAccounts({ label, datas, isFollowing }) {
     );
 }
 
-SuggestedAccounts.propTypes = {
+Accounts.propTypes = {
     label: PropTypes.string.isRequired,
 };
 
-export default SuggestedAccounts;
+export default Accounts;

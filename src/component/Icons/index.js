@@ -183,7 +183,7 @@ export const UserFollowedIcon = ({ className }) => (
         className={className}
         fill="currentColor"
         color="inherit"
-        font-size="inherit"
+        fontSize="inherit"
         viewBox="0 0 48 48"
         xmlns="http://www.w3.org/2000/svg"
         width="1em"
