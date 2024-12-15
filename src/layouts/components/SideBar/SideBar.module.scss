@@ -1,4 +1,25 @@
 .wrapper {
     width: 286px;
-    padding-top: 20px;
+    padding-top: 8px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-align: justify;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px; /* Rounded edges */
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.1); /* Hover color */
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: rgba(255, 255, 255, 0.5); /* Track color */
+        border-radius: 4px; /* Rounded edges */
+    }
 }

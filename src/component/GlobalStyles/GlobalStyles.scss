@@ -16,24 +16,6 @@ html {
     font-size: 62.5%;
 }
 
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.5); /* Scrollbar thumb color */
-    border-radius: 4px; /* Rounded edges */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Hover color */
-}
-
-::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, 0.5); /* Track color */
-    border-radius: 4px; /* Rounded edges */
-}
-
 body {
     font-family: var(--font-family);
     font-size: 1.6rem;

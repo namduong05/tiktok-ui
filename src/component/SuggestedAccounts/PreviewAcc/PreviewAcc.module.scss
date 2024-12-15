@@ -16,6 +16,16 @@
     object-fit: cover;
 }
 
+.fl-btn {
+    border-radius: 0;
+}
+
+.fl-icon {
+    position: relative;
+    top: 1px;
+    right: 2px;
+}
+
 .info {
     margin: 16px 0;
 }

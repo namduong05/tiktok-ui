@@ -3,6 +3,7 @@ import styles from './PreviewAcc.module.scss';
 import Button from '~/component/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { UserFollowedIcon } from '~/component/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -11,7 +12,14 @@ function PreviewAcc({ data, isFollowing }) {
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
                 <img className={cx('avatar')} src={data.avatar} alt={data.nickname} />
-                {isFollowing ? <Button rounded>Following</Button> : <Button primary>Follow</Button>}
+                {isFollowing ? (
+                    <Button className={cx('fl-btn')} rounded>
+                        <UserFollowedIcon className={cx('fl-icon')} />
+                        Following
+                    </Button>
+                ) : (
+                    <Button primary>Follow</Button>
+                )}
             </div>
 
             <div className={cx('info')}>

@@ -1,6 +1,7 @@
 .footer {
     border-top: 1px solid #ddd;
-    padding-top: 16px;
+    padding: 16px 0 24px;
+    margin-right: 6px;
 }
 
 .event {
@@ -13,7 +14,7 @@
 
 .title-event {
     position: absolute;
-    top: 16px;
+    top: 12px;
     left: 20px;
     max-width: 150px;
     font-size: 1.4rem;
@@ -25,6 +26,28 @@
     cursor: pointer;
     color: rgba(22, 24, 35, 0.5);
     font-size: 1.5rem;
+
+    &.active1,
+    &.active2,
+    &.active3 {
+        color: #000;
+    }
+}
+
+.list-link {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.list-link a {
+    padding: 6px 5px 0 0;
+    font-size: 1.2rem;
+    color: rgba(22, 24, 35, 0.5) !important;
+}
+
+.list-link a:hover {
+    text-decoration: underline;
 }
 
 .copyright {
