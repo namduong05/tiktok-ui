@@ -50,8 +50,6 @@ const ListLink = () => {
     ];
 
     const handleClick = (index) => {
-        document.getElementsByClassName(styles.title)[index].classList.add(styles.active);
-        if (activeTab === index) document.getElementsByClassName(styles.title)[index].classList.remove(styles.active);
         setActiveTab(activeTab === index ? null : index);
     };
 
@@ -59,7 +57,7 @@ const ListLink = () => {
         <div>
             {listLink.map((list, index) => (
                 <div key={index}>
-                    <h4 className={cx('title')} onClick={() => handleClick(index)}>
+                    <h4 className={cx('title', { active: activeTab === index })} onClick={() => handleClick(index)}>
                         {list.title}
                     </h4>
                     {activeTab === index && (
