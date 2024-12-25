@@ -1,4 +1,5 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
+import { useDebounce } from '~/hooks';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
 import AccountItem from '~/component/AccountItem';
@@ -7,45 +8,57 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { SearchIcon } from '~/component/Icons';
-import { useDebounce } from '~/hooks';
 import * as searchServices from '~/services/searchService';
 
 const cx = classNames.bind(styles);
 
 function Search() {
-    const [searchValue, setSearchValue] = useState('');
-    const [searchResult, setSearchResult] = useState([]);
-    const [showResult, setShowResult] = useState(true);
-    const [loading, setLoading] = useState(false);
+    const [state, setState] = useState({
+        searchValue: '',
+        searchResult: [],
+        showResult: false,
+        loading: false,
+    });
 
-    const debouncedValue = useDebounce(searchValue, 500);
-
+    const debouncedValue = useDebounce(state.searchValue, 500);
     const inputRef = useRef();
 
-    useEffect(() => {
+    const fetchSearchResults = useCallback(async () => {
         if (!debouncedValue.trim()) {
-            setSearchResult([]);
+            setState((prev) => ({ ...prev, searchResult: [], loading: false }));
             return;
         }
 
-        const fetchApi = async () => {
-            setLoading(true);
+        setState((prev) => ({ ...prev, loading: true }));
+
+        try {
             const result = await searchServices.search(debouncedValue);
-            setSearchResult(result);
-
-            setLoading(false);
-        };
-
-        fetchApi();
+            setState((prev) => ({ ...prev, searchResult: result, loading: false }));
+        } catch (error) {
+            setState((prev) => ({ ...prev, loading: false }));
+        }
     }, [debouncedValue]);
 
+    // Fetch search results when debouncedValue changes
+    useDebounce(fetchSearchResults, 500, [debouncedValue]);
+
     const handleClear = () => {
-        setSearchValue('');
+        setState((prev) => ({
+            ...prev,
+            searchValue: '',
+            searchResult: [],
+            showResult: false,
+        }));
         inputRef.current.focus();
     };
 
+    const handleChange = (e) => {
+        const value = e.target.value.trimStart();
+        setState((prev) => ({ ...prev, searchValue: value, showResult: true }));
+    };
+
     const handleHideResult = () => {
-        setShowResult(false);
+        setState((prev) => ({ ...prev, showResult: false }));
     };
 
     return (
@@ -54,12 +67,12 @@ function Search() {
         <div>
             <HeadlessTippy
                 interactive
-                visible={showResult && searchResult.length > 0}
+                visible={state.showResult && state.searchResult.length > 0}
                 render={(attrs) => (
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                         <PopperWrapper>
                             <h4 className={cx('search-title')}>Accounts</h4>
-                            {searchResult.map((result) => (
+                            {state.searchResult.map((result) => (
                                 <AccountItem data={result} key={result.id} />
                             ))}
                         </PopperWrapper>
@@ -70,19 +83,19 @@ function Search() {
                 <div className={cx('search')}>
                     <input
                         ref={inputRef}
-                        value={searchValue}
+                        value={state.searchValue}
                         placeholder="Search accounts and videos"
                         spellCheck={false}
-                        onChange={(e) => setSearchValue(e.target.value.trimStart(' '))}
-                        onFocus={() => setShowResult(true)}
+                        onChange={handleChange}
+                        onFocus={() => setState((prev) => ({ ...prev, showResult: true }))}
                     />
-                    {!!searchValue && !loading && (
+                    {!!state.searchValue && !state.loading && (
                         <button className={cx('clear')} onClick={handleClear}>
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </button>
                     )}
 
-                    {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                    {state.loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
                     <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                         <SearchIcon />
