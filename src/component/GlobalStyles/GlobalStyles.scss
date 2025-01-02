@@ -20,7 +20,7 @@ body {
     font-size: 1.6rem;
     text-rendering: optimizespeed;
     line-height: 1.5;
-    overflow-y: overlay;
+    height: 100%;
     padding: 0 12px;
 }
 
@@ -34,6 +34,7 @@ button,
 input {
     outline: none;
     border: none;
+    background-color: transparent;
 }
 
 a[href] {

@@ -1,54 +1,69 @@
 import Video from '~/component/Video';
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
-import video1 from '~/assets/video/video1.mp4';
 import { AddFollowerIcon, CommentIcon, LikeIcon, SaveVideoIcon, ShareVideoIcon } from '~/component/Icons';
-// import video2 from '~/assets/video/video2.mp4';
-// import video3 from '~/assets/video/video3.mp4';
+import video1 from '~/assets/video/video1.mp4';
+import video2 from '~/assets/video/video2.mp4';
+import video3 from '~/assets/video/video3.mp4';
+import Image from '~/component/Image';
 
 const cx = classNames.bind(styles);
 
 function Home() {
+    const videos = [
+        { src: video1, username: '@user1', description: 'Video 1 description' },
+        { src: video2, username: '@user2', description: 'Video 2 description' },
+        { src: video3, username: '@user3', description: 'Video 3 description' },
+    ];
+
     return (
-        <div className={cx('list-video')}>
-            <Video src={video1} controls autoPlay loop />
-            {/* <Video src={video2} controls autoPlay loop /> */}
-            {/* <Video src={video3} controls autoPlay loop /> */}
-            <div className={cx('options')}>
-                <div className={cx('user-avatar')}>
-                    <img
-                        src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/f5e4ddc0e8272de33c8360143b68c1f4~c5_100x100.jpeg?lk3s=a5d48078&nonce=25906&refresh_token=b95e2f703790026cc9db5be5a1568560&x-expires=1734523200&x-signature=FQgREwIxUNyXrIOOscCyezHAhY0%3D&shp=a5d48078&shcp=81f88b70"
-                        alt="Tien Bip"
-                    />
-                    <button className={cx('add')}>
-                        <AddFollowerIcon className={cx('icon-add')} />
-                    </button>
-                </div>
-                <div className={cx('like')}>
-                    <div className={cx('icon')}>
-                        <LikeIcon />
+        <div className={cx('slider')}>
+            {videos.map((video, index) => (
+                <div key={index} className={cx('slide')}>
+                    <div className={cx('content')}>
+                        <Video src={video.src} autoPlay={false} muted loop>
+                            <div className={cx('overlay')}>
+                                <p>{video.username}</p>
+                                <p>{video.description}</p>
+                            </div>
+                        </Video>
                     </div>
-                    <div className={cx('value')}>500K</div>
-                </div>
-                <div className={cx('comment')}>
-                    <div className={cx('icon')}>
-                        <CommentIcon />
+                    <div className={cx('interaction-buttons')}>
+                        <div className={cx('user')}>
+                            <div className={cx('user-avt')}>
+                                <Image src="" alt="" className={cx('avt')} />
+                            </div>
+                            <button>
+                                <AddFollowerIcon className={cx('add-icon')} />
+                            </button>
+                        </div>
+                        <button className={cx('like', 'btn')}>
+                            <span>
+                                <LikeIcon />
+                            </span>
+                            <strong className={cx('count')}>500K</strong>
+                        </button>
+                        <button className={cx('comment', 'btn')}>
+                            <span>
+                                <CommentIcon />
+                            </span>
+                            <strong className={cx('count')}>500K</strong>
+                        </button>
+                        <button className={cx('save', 'btn')}>
+                            <span>
+                                <SaveVideoIcon />
+                            </span>
+                            <strong className={cx('count')}>500K</strong>
+                        </button>
+                        <button className={cx('share', 'btn')}>
+                            <span>
+                                <ShareVideoIcon />
+                            </span>
+                            <strong className={cx('count')}>500K</strong>
+                        </button>
                     </div>
-                    <div className={cx('value')}>500K</div>
                 </div>
-                <div className={cx('save')}>
-                    <div className={cx('icon')}>
-                        <SaveVideoIcon />
-                    </div>
-                    <div className={cx('value')}>500K</div>
-                </div>
-                <div className={cx('share')}>
-                    <div className={cx('icon')}>
-                        <ShareVideoIcon />
-                    </div>
-                    <div className={cx('value')}>500K</div>
-                </div>
-            </div>
+            ))}
         </div>
     );
 }

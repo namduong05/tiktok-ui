@@ -1,7 +1,7 @@
 .wrapper {
     width: 286px;
     padding-top: 8px;
-    height: 100vh;
+    height: calc(-60px + 100vh);
     overflow-x: hidden;
     overflow-x: auto;
     text-align: justify;

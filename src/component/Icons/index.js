@@ -204,8 +204,8 @@ export const AddFollowerIcon = ({ className }) => (
         fill="currentColor"
         viewBox="0 0 48 48"
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="1.6em"
+        height="1.6em"
     >
         <path d="M26 7a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v15H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h15v15a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V26h15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H26V7Z"></path>
     </svg>
@@ -246,7 +246,7 @@ export const LikeIcon = ({ className }) => (
                 filterUnits="userSpaceOnUse"
                 colorInterpolationFilters="sRGB"
             >
-                <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
                 <feColorMatrix
                     in="SourceAlpha"
                     type="matrix"
@@ -341,7 +341,7 @@ export const ShareVideoIcon = ({ className }) => (
             >
                 <stop></stop>
                 <stop offset=".995" stopOpacity=".01"></stop>
-                <stop offset="1" stop-opacity=".01"></stop>
+                <stop offset="1" stopOpacity=".01"></stop>
             </radialGradient>
         </defs>
     </svg>

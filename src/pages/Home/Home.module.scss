@@ -1,51 +1,88 @@
-.list-video {
+.slider {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    max-height: calc(-60px + 100vh);
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.slide {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding: 16px;
-    padding-inline-end: 200px;
+    scroll-snap-align: start;
+    padding: 20px;
 }
 
-.user-avatar {
+.content {
+    .overlay {
+        color: #fff;
+        transform: translateY(-100%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.interaction-buttons {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-    img {
-        width: 48px;
-        height: 48px;
-        object-fit: cover;
-        border-radius: 50%;
-    }
-
-    .add {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: var(--primary);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: -14px;
-        color: #fff;
-    }
-}
-
-.icon {
-    display: flex;
     justify-content: center;
     align-items: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: rgb(241, 241, 242);
-}
+    margin-left: 12px;
 
-.value {
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-align: center;
-    color: rgba(22, 24, 35, 0.75);
-    margin: 6px 0;
+    .user {
+        position: relative;
+        margin-bottom: 20px;
+
+        .avt {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        button {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 64%;
+            background-color: red;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+
+            .add-icon {
+                padding: 3px;
+            }
+        }
+    }
+
+    button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+
+    .btn {
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(22, 24, 35, 0.06);
+        }
+
+        strong {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+    }
 }

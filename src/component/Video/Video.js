@@ -4,10 +4,11 @@ import styles from './Video.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Video = ({ src, controls = true, autoPlay = false, loop = false, className }) => {
+const Video = ({ src, controls = true, autoPlay = false, loop = false, className, children }) => {
     return (
         <div className={cx('video-wrapper', className)}>
             <video className={cx('video')} src={src} controls={controls} autoPlay={autoPlay} loop={loop} />
+            {children}
         </div>
     );
 };
